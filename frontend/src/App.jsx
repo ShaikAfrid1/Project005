@@ -1,6 +1,11 @@
+import Navbar from "./components/Navbar";
+import Mainroutes from "./routes/Mainroutes";
 const App = () => {
   return (
-    <div className="bg-black h-screen w-screen font-black text-white">hi</div>
+    <div className="bg-black p-5 h-screen w-screen  text-white">
+      <Navbar />
+      <Mainroutes />
+    </div>
   );
 };
 
