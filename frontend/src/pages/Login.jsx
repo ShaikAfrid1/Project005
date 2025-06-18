@@ -8,6 +8,7 @@ const Login = () => {
   const onSubmit = (data) => {
     console.log(data);
     reset();
+    
   };
 
   return (
