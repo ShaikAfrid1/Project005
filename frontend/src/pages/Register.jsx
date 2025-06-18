@@ -1,18 +1,24 @@
 import { useForm } from "react-hook-form";
 import { nanoid } from "nanoid";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { asyncregisteruser } from "../actions/userActions";
 import { useDispatch } from "react-redux";
+/* eslint-disable no-unused-vars */
+import { toast } from "react-toastify";
 
 const Register = () => {
   const { register, handleSubmit, reset } = useForm();
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     data.id = nanoid();
+    data.isAdmin = false;
     dispatch(asyncregisteruser(data));
-    reset();
+    toast.success(`${data.username} New Account Registered!`, {
+      position: "bottom-right",
+    });
+    navigate("/login");
   };
 
   return (
@@ -59,7 +65,7 @@ const Register = () => {
 
           <button
             type="submit"
-            className="bg-[#BE3144] rounded-2xl mb-1 active:scale-90"
+            className="bg-[#BE3144] rounded-2xl mb-1 active:bg-[#ff314c]"
           >
             Register
           </button>

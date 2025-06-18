@@ -1,14 +1,21 @@
-import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { asyncloginuser } from "../actions/userActions";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const { register, handleSubmit, reset } = useForm();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(asyncloginuser(data));
+    toast.success(`Loggedin to your Account!`, {
+      position: "bottom-right",
+    });
+    navigate("/");
     reset();
-    
   };
 
   return (
@@ -45,7 +52,7 @@ const Login = () => {
 
           <button
             type="submit"
-            className="bg-[#BE3144] rounded-2xl mb-1 active:scale-90"
+            className="bg-[#BE3144] rounded-2xl mb-1 active:bg-[#ff314c]"
           >
             Login
           </button>
