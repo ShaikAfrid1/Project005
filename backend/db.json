@@ -13,48 +13,6 @@
       "email": "shaikafrid500@gmail.com",
       "password": "123456",
       "isAdmin": false
-    },
-    {
-      "id": "OjqaI1pxB0dJbkjiPf0qZ",
-      "username": "shinto",
-      "email": "shinto@gmail.com",
-      "password": "Food@143",
-      "isAdmin": false
-    },
-    {
-      "id": "7RkyeJ0emPVYwNLVmzrRn",
-      "username": "Shintoooo",
-      "email": "Shintooooo@gmail.com",
-      "password": "Foodie@143",
-      "isAdmin": false
-    },
-    {
-      "id": "kAns9EgGDOeoHClpYf6Aj",
-      "username": "heyy ",
-      "email": "hey@gmail.com",
-      "password": "asigasduias",
-      "isAdmin": false
-    },
-    {
-      "id": "awaK7dET-gI9YXUS2HBaO",
-      "username": "hello",
-      "email": "hello@hello.com",
-      "password": "1234468",
-      "isAdmin": false
-    },
-    {
-      "id": "uSzofNMOLBFzA4tOT9vEm",
-      "username": "fdgsdf",
-      "email": "sdfgsdsd@sdsd.com",
-      "password": "asdasas",
-      "isAdmin": false
-    },
-    {
-      "id": "_azRUaf0MotseKRhk7iHS",
-      "username": "Shintoooo",
-      "email": "Shintooo@outlook.com",
-      "password": "foodiey@143",
-      "isAdmin": false
     }
   ],
   "products": [
@@ -64,11 +22,7 @@
       "price": 109.95,
       "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
       "category": "men's clothing",
-      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-      "rating": {
-        "rate": 3.9,
-        "count": 120
-      }
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
     }
   ],
   "carts": []

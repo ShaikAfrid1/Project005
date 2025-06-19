@@ -3,11 +3,13 @@ import Navbar from "./components/Navbar";
 import Mainroutes from "./routes/Mainroutes";
 import { asynccurrentuser } from "./actions/userActions";
 import { useDispatch } from "react-redux";
+import { asyncloadproduct } from "./actions/productActions";
 
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(asynccurrentuser());
+    dispatch(asyncloadproduct());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
