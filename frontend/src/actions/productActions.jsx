@@ -13,7 +13,7 @@ export const asyncloadproduct = () => async (dispatch, getState) => {
 
 export const asynccreateproduct = (product) => async (dispatch, getState) => {
   try {
-    await axios.get("/products", product);
+    await axios.post("/products", product);
     dispatch(asyncloadproduct);
   } catch (error) {
     console.error(error);

@@ -24,14 +24,14 @@ const CreateProduct = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-screen w-full">
       <div className="flex justify-center">
-        <h1 className="mb-10 text-4xl items-center">Create Product!</h1>
+        <h1 className="mb-3 text-4xl items-center">Create Product!</h1>
       </div>
       <div className="flex justify-center">
         <form
           onSubmit={handleSubmit(createProductHandler)}
-          className="flex justify-start flex-col w-1/3 p-2 "
+          className="flex justify-start flex-col w-1/3 p-1 "
         >
           <label htmlFor="title" className="text-xl">
             Title:
@@ -41,7 +41,7 @@ const CreateProduct = () => {
             id="title"
             {...register("title")}
             placeholder="Product Name"
-            className="outline-0 border-b mb-3 p-2 text-3xl"
+            className="outline-0 border-b mb-2 p-2 text-3xl"
           />
 
           <label htmlFor="price" className="text-xl">
@@ -53,7 +53,7 @@ const CreateProduct = () => {
             {...register("price")}
             type="number"
             placeholder="&#8377; 0.00"
-            className="outline-0 border-b mb-3 p-2 text-3xl"
+            className="outline-0 border-b mb-2 p-2 text-3xl"
           />
 
           <label htmlFor="image" className="text-xl">
@@ -65,23 +65,34 @@ const CreateProduct = () => {
             {...register("image")}
             type="url"
             placeholder="Image URL"
-            className="outline-0 border-b mb-3 p-2 text-3xl"
+            className="outline-0 border-b mb-2 p-2 text-3xl"
           />
 
-          <label htmlFor="desc" className="text-xl">
+          <label htmlFor="description" className="text-xl">
             Description:
           </label>
 
           <textarea
-            id="desc"
+            id="description"
             {...register("description")}
             placeholder="Enter Description here..."
-            className="outline-0 border-b mb-3 p-2 text-3xl"
+            className="outline-0 border-b mb-2 p-2 text-3xl"
           ></textarea>
+
+          <label htmlFor="category" className="text-xl">
+            Category:
+          </label>
+
+          <input
+            id="category"
+            {...register("category")}
+            placeholder="Category"
+            className="outline-0 border-b mb-2 p-2 text-3xl"
+          />
 
           <button
             type="submit"
-            className="bg-[#BE3144] rounded-2xl mb-1 active:bg-[#ff314c]"
+            className="bg-[#BE3144] rounded-2xl mt-1 active:bg-[#ff314c]"
           >
             Create Product
           </button>
