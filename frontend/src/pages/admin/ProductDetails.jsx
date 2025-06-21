@@ -1,27 +1,49 @@
+/* eslint-disable no-unused-vars */
 import { useDispatch, useSelector } from "react-redux";
 import ShoppingCartIcon from "@mui/icons-material/AddShoppingCartSharp";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import {
+  asyncdeleteproduct,
+  asyncupdateproduct,
+} from "../../actions/productActions";
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const products = useSelector((state) => state.productReducer.products);
+  const {
+    productReducer: { products },
+    userReducer: { users },
+  } = useSelector((state) => state);
   const product = products?.find((product) => product.id == id);
-  console.log(product);
+  console.log(product, users);
 
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm({
+    defaultValues: {
+      image: product?.image,
+      title: product?.title,
+      price: product?.price,
+      category: product?.category,
+      description: product?.description,
+    },
+  });
   const dispatch = useDispatch();
-
-  const updateProductHandler = async (product) => {
-    dispatch(asyncupdateproduct(product));
+  const navigate = useNavigate();
+  const updateProductHandler = (product) => {
+    dispatch(asyncupdateproduct(id, product));
 
     toast.success(`${product.title} Updated Successfully!`, {
       position: "bottom-right",
     });
   };
 
-  return (
+  const deleteHandler = () => {
+    dispatch(asyncdeleteproduct(id));
+    navigate("/products");
+  };
+
+  return product ? (
     <>
       <div className="w-full flex">
         <img
@@ -45,76 +67,87 @@ const ProductDetails = () => {
       <br /> <br />
       <hr />
       <div>
-        <form
-          onSubmit={handleSubmit(updateProductHandler)}
-          className="flex justify-start flex-col  p-1 "
-        >
-          <label htmlFor="title" className="text-xl">
-            Title:
-          </label>
-
-          <input
-            id="title"
-            {...register("title")}
-            placeholder="Product Name"
-            className="outline-0 border-b mb-2 p-2 text-3xl"
-          />
-
-          <label htmlFor="price" className="text-xl">
-            Price:
-          </label>
-
-          <input
-            id="price"
-            {...register("price")}
-            type="number"
-            placeholder="&#8377; 0.00"
-            className="outline-0 border-b mb-2 p-2 text-3xl"
-          />
-
-          <label htmlFor="image" className="text-xl">
-            Image:
-          </label>
-
-          <input
-            id="image"
-            {...register("image")}
-            type="url"
-            placeholder="Image URL"
-            className="outline-0 border-b mb-2 p-2 text-3xl"
-          />
-
-          <label htmlFor="description" className="text-xl">
-            Description:
-          </label>
-
-          <textarea
-            id="description"
-            {...register("description")}
-            placeholder="Enter Description here..."
-            className="outline-0 border-b mb-2 p-2 text-3xl"
-          ></textarea>
-
-          <label htmlFor="category" className="text-xl">
-            Category:
-          </label>
-
-          <input
-            id="category"
-            {...register("category")}
-            placeholder="Category"
-            className="outline-0 border-b mb-2 p-2 text-3xl"
-          />
-
-          <button
-            type="submit"
-            className="bg-[#BE3144] rounded-2xl mt-1 active:bg-[#ff314c]"
+        {users && users?.isAdmin && (
+          <form
+            onSubmit={handleSubmit(updateProductHandler)}
+            className="flex justify-start flex-col  p-1 "
           >
-            Update Product
-          </button>
-        </form>
+            <label htmlFor="title" className="text-xl">
+              Title:
+            </label>
+
+            <input
+              id="title"
+              {...register("title")}
+              placeholder="Product Name"
+              className="outline-0 border-b mb-2 p-2 text-3xl"
+            />
+
+            <label htmlFor="price" className="text-xl">
+              Price:
+            </label>
+
+            <input
+              id="price"
+              {...register("price")}
+              type="number"
+              placeholder="&#8377; 0.00"
+              className="outline-0 border-b mb-2 p-2 text-3xl"
+            />
+
+            <label htmlFor="image" className="text-xl">
+              Image:
+            </label>
+
+            <input
+              id="image"
+              {...register("image")}
+              type="url"
+              placeholder="Image URL"
+              className="outline-0 border-b mb-2 p-2 text-3xl"
+            />
+
+            <label htmlFor="description" className="text-xl">
+              Description:
+            </label>
+
+            <textarea
+              id="description"
+              {...register("description")}
+              placeholder="Enter Description here..."
+              className="outline-0 border-b mb-2 p-2 text-3xl"
+            ></textarea>
+
+            <label htmlFor="category" className="text-xl">
+              Category:
+            </label>
+
+            <input
+              id="category"
+              {...register("category")}
+              placeholder="Category"
+              className="outline-0 border-b mb-2 p-2 text-3xl"
+            />
+
+            <button
+              type="submit"
+              className="bg-green-400 rounded-2xl mt-3 active:bg-green-500"
+            >
+              Update Product
+            </button>
+            <button
+              type="button"
+              onClick={deleteHandler}
+              className="bg-red-400 rounded-2xl mt-3 active:bg-red-500"
+            >
+              Delete Product
+            </button>
+          </form>
+        )}
       </div>
     </>
+  ) : (
+    "Loading..."
   );
 };
 

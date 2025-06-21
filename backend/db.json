@@ -25,68 +25,236 @@
       "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
     },
     {
-      "id": "trOQgB9R-9vXfTHMxGVyy",
-      "title": "Dummy",
-      "price": "450",
-      "image": "https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg",
-      "description": "adcadcdas",
-      "category": "sadcfasddads"
+      "id": "2",
+      "title": "Mens Casual Premium Slim Fit T-Shirts ",
+      "price": "22",
+      "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, lightweight & soft fabric.",
+      "category": "men's clothing",
+      "image": "https://source.unsplash.com/300x300/?shirt,man"
     },
     {
-      "id": "7ET7x-ZAmXdwaoAPM3lt8",
-      "title": "",
-      "price": "",
-      "image": "",
-      "description": "",
-      "category": ""
+      "id": "3",
+      "title": "Mens Cotton Jacket",
+      "price": 55.99,
+      "description": "Great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions.",
+      "category": "men's clothing",
+      "image": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
     },
     {
-      "id": "28FXnwOtOG_fa21kRSAc9",
-      "title": "",
-      "price": "",
-      "image": "",
-      "description": "",
-      "category": ""
+      "id": "4",
+      "title": "Mens Casual Slim Fit",
+      "price": 15.99,
+      "description": "The color could be slightly different between on the screen and in practice.",
+      "category": "men's clothing",
+      "image": "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg"
     },
     {
-      "id": "L3qnp8v3xGZkOSwAAKFgA",
-      "title": "sdsdsd",
-      "price": "54954",
-      "image": "https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg",
-      "description": "",
-      "category": "sdfsdsd"
+      "id": "5",
+      "title": "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
+      "price": 695,
+      "description": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean’s pearl.",
+      "category": "jewelery",
+      "image": "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg"
     },
     {
-      "id": "uqSsTVczx_Gi36im7iZ9O",
-      "title": "sdcsdfsd",
-      "price": "66596545564",
-      "image": "https://media.istockphoto.com/id/1352567176/photo/homemade-cooked-shrimp-scampi-with-pasta.webp?a=1&b=1&s=612x612&w=0&k=20&c=bOKJnhw0-sesuMwyDocSwbdqt9A-2Jjn5wk628QfRMs=",
-      "description": "svssdfsdf",
-      "category": "sdfscsd"
+      "id": "6",
+      "title": "Solid Gold Petite Micropave ",
+      "price": 168,
+      "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days.",
+      "category": "jewelery",
+      "image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg"
     },
     {
-      "id": "slQ4xANj70iAJRu-XtrA8",
-      "title": "Dummy ",
-      "price": "5556",
-      "image": "https://media.istockphoto.com/id/1352567176/photo/homemade-cooked-shrimp-scampi-with-pasta.webp?a=1&b=1&s=612x612&w=0&k=20&c=bOKJnhw0-sesuMwyDocSwbdqt9A-2Jjn5wk628QfRMs=",
-      "description": "hi how are you are you feelimg good and im doing good how are you ",
-      "category": "mens"
+      "id": "7",
+      "title": "White Gold Plated Princess",
+      "price": 9.99,
+      "description": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her.",
+      "category": "jewelery",
+      "image": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg"
     },
     {
-      "id": "Gwl6xXYf-XB_JUAPNVYv4",
-      "title": "",
-      "price": "",
-      "image": "",
-      "description": "",
-      "category": ""
+      "id": "8",
+      "title": "Pierced Owl Rose Gold Plated Stainless Steel Double",
+      "price": 10.99,
+      "description": "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel.",
+      "category": "jewelery",
+      "image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg"
     },
     {
-      "id": "Vo7RdoMHGZfW03qmmzrtn",
-      "title": "",
-      "price": "",
-      "image": "",
-      "description": "",
-      "category": ""
+      "id": "9",
+      "title": "WD 2TB Elements Portable External Hard Drive",
+      "price": 64,
+      "description": "USB 3.0 and USB 2.0 Compatibility. Fast data transfers. Improve PC performance.",
+      "category": "electronics",
+      "image": "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg"
+    },
+    {
+      "id": "10",
+      "title": "SanDisk SSD PLUS 1TB Internal SSD",
+      "price": 109,
+      "description": "Easy upgrade for faster boot-up, shutdown, application load and response.",
+      "category": "electronics",
+      "image": "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg"
+    },
+    {
+      "id": "11",
+      "title": "Silicon Power 256GB SSD 3D NAND A55 SLC",
+      "price": 109,
+      "description": "Superfast read/write speeds, low power consumption, and shock resistant.",
+      "category": "electronics",
+      "image": "https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg"
+    },
+    {
+      "id": "12",
+      "title": "WD 4TB Gaming Drive Works with Playstation 4",
+      "price": 114,
+      "description": "Expand your PS4 gaming experience, Play anywhere. Fast and easy setup.",
+      "category": "electronics",
+      "image": "https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg"
+    },
+    {
+      "id": "13",
+      "title": "Acer SB220Q bi 21.5 inches Full HD",
+      "price": 599,
+      "description": "21.5 inches Full HD (1920 x 1080) widescreen IPS display and Radeon FreeSync technology.",
+      "category": "electronics",
+      "image": "https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg"
+    },
+    {
+      "id": "14",
+      "title": "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor",
+      "price": 999.99,
+      "description": "49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side-by-side.",
+      "category": "electronics",
+      "image": "https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg"
+    },
+    {
+      "id": "15",
+      "title": "BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats",
+      "price": 56.99,
+      "description": "Note:The Jackets is US standard size, Please choose size as your usual wear.",
+      "category": "women's clothing",
+      "image": "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg"
+    },
+    {
+      "id": "16",
+      "title": "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket",
+      "price": 29.95,
+      "description": "100% POLYURETHANE (shell) 100% POLYESTER (lining) Imported. Hand Wash Only.",
+      "category": "women's clothing",
+      "image": "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg"
+    },
+    {
+      "id": "17",
+      "title": "Rain Jacket Women Windbreaker Striped Climbing Raincoats",
+      "price": 39.99,
+      "description": "Lightweight perfect for trip or casual wear---Long sleeve with hooded, adjustable drawstring waist design.",
+      "category": "women's clothing",
+      "image": "https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg"
+    },
+    {
+      "id": "18",
+      "title": "MBJ Women's Solid Short Sleeve Boat Neck V",
+      "price": 9.85,
+      "description": "95% RAYON 5% SPANDEX. Soft and stretchy fabric. Lightweight and breathable.",
+      "category": "women's clothing",
+      "image": "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg"
+    },
+    {
+      "id": "19",
+      "title": "Opna Women's Short Sleeve Moisture",
+      "price": 7.95,
+      "description": "100% Polyester. Machine wash. Lightweight, roomy and highly breathable.",
+      "category": "women's clothing",
+      "image": "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg"
+    },
+    {
+      "id": "20",
+      "title": "DANVOUY Womens T Shirt Casual Cotton Short",
+      "price": 12.99,
+      "description": "95% Cotton,5% Spandex. Features: Casual, Short Sleeve, Letter Print.",
+      "category": "women's clothing",
+      "image": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg"
+    },
+    {
+      "id": "21",
+      "title": "Gaming Mouse RGB Wired 7-Button",
+      "price": 19.99,
+      "description": "High precision, adjustable DPI levels, and RGB color lighting for gamers.",
+      "category": "electronics",
+      "image": "https://fakestoreapi.com/img/mouse1.jpg"
+    },
+    {
+      "id": "22",
+      "title": "Bluetooth Wireless Earbuds with Charging Case",
+      "price": 29.99,
+      "description": "True wireless stereo with charging case. Noise reduction and clear bass.",
+      "category": "electronics",
+      "image": "https://fakestoreapi.com/img/earbuds1.jpg"
+    },
+    {
+      "id": "23",
+      "title": "Mens Hooded Winter Jacket - Windproof",
+      "price": 49.99,
+      "description": "Comfortable men’s jacket with fleece lining, windproof material.",
+      "category": "men's clothing",
+      "image": "https://fakestoreapi.com/img/mens-jacket.jpg"
+    },
+    {
+      "id": "24",
+      "title": "Stylish Analog Watch for Women",
+      "price": 25.49,
+      "description": "Elegant wristwatch with leather strap and rose gold finish.",
+      "category": "jewelery",
+      "image": "https://fakestoreapi.com/img/watch-women.jpg"
+    },
+    {
+      "id": "25",
+      "title": "NoiseFit Smartwatch with Heart Rate Monitor",
+      "price": 79.99,
+      "description": "Fitness tracker, HR monitor, sleep analysis and notification alerts.",
+      "category": "electronics",
+      "image": "https://fakestoreapi.com/img/smartwatch1.jpg"
+    },
+    {
+      "id": "26",
+      "title": "Women's Casual Fit T-Shirt",
+      "price": 11.25,
+      "description": "Soft cotton short sleeve tee with relaxed fit.",
+      "category": "women's clothing",
+      "image": "https://fakestoreapi.com/img/tshirt-women.jpg"
+    },
+    {
+      "id": "27",
+      "title": "Gold Plated Necklace with Pearl Drop",
+      "price": 34.99,
+      "description": "Delicate gold plated necklace with natural pearl drop.",
+      "category": "jewelery",
+      "image": "https://fakestoreapi.com/img/necklace-pearl.jpg"
+    },
+    {
+      "id": "28",
+      "title": "Men’s Analog Watch with Leather Strap",
+      "price": 45.99,
+      "description": "Minimalist analog watch for men with genuine leather strap.",
+      "category": "jewelery",
+      "image": "https://fakestoreapi.com/img/mens-watch.jpg"
+    },
+    {
+      "id": "29",
+      "title": "Kids Cartoon Printed Backpack",
+      "price": 19.99,
+      "description": "Cute and colorful backpack for school or travel.",
+      "category": "men's clothing",
+      "image": "https://fakestoreapi.com/img/kids-bag.jpg"
+    },
+    {
+      "id": "30",
+      "title": "Women’s Classic High Waist Jeans",
+      "price": 24.99,
+      "description": "Trendy high-waisted jeans with a comfy stretch.",
+      "category": "women's clothing",
+      "image": "https://fakestoreapi.com/img/jeans-women.jpg"
     }
   ],
   "carts": []

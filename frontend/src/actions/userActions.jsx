@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import axios from "../Api/AxiosConfig";
-import { loaduser } from "../reducers/Userslice";
+import { loaduser, removeuser } from "../reducers/Userslice";
 
 export const asynccurrentuser = () => async (dispatch, getState) => {
   try {
@@ -12,9 +12,10 @@ export const asynccurrentuser = () => async (dispatch, getState) => {
   }
 };
 
-export const asynclogoutuser = (user) => async (dispatch, getState) => {
+export const asynclogoutuser = () => async (dispatch, getState) => {
   try {
     localStorage.removeItem("user");
+    dispatch(removeuser());
     console.log("User Logged Out!");
   } catch (error) {
     console.log(error);
