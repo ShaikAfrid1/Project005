@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const user = useSelector((state) => state.userReducer.users);
-  console.log(user);
 
   return (
     <nav className="flex mb-10 justify-between items-center p-10">
