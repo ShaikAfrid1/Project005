@@ -8,6 +8,9 @@ const Products = () => {
   const renderProducts = products.map((product) => {
     if (!product.title || !product.price || !product.image) return null;
 
+
+    
+
     return (
       <div
         key={product.id}

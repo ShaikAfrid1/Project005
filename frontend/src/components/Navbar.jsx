@@ -1,20 +1,9 @@
-import { NavLink, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { asynclogoutuser } from "../actions/userActions";
-import { toast } from "react-toastify";
+import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
 
 const Navbar = () => {
   const user = useSelector((state) => state.userReducer.users);
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const logoutHandler = () => {
-    dispatch(asynclogoutuser());
-    toast.error(`Logged Out Successfully!`, {
-      position: "bottom-right",
-      icon: false,
-    });
-    navigate("/");
-  };
 
   return (
     <nav className="flex mb-10 justify-between items-center p-10">
@@ -30,7 +19,9 @@ const Navbar = () => {
         {user ? (
           <>
             <NavLink to="/admin/create-product">Create Product</NavLink>
-            <button onClick={logoutHandler}>Log Out</button>
+            <NavLink to="/admin/user-profile">
+              <AccountCircleSharpIcon />
+            </NavLink>
           </>
         ) : (
           <>

@@ -10,12 +10,16 @@ const Login = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
+    const refreshPage = () => {
+      navigate(0);
+    };
     dispatch(asyncloginuser(data));
     toast.success(`Loggedin to your Account!`, {
       position: "bottom-right",
     });
     navigate("/");
     reset();
+    refreshPage();
   };
 
   return (
