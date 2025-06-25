@@ -4,12 +4,14 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { asyncdeleteuser, asyncupdateuser } from "../../actions/userActions";
+import {
+  asyncdeleteuser,
+  asynclogoutuser,
+  asyncupdateuser,
+} from "../../actions/userActions";
 
 const UserProfile = () => {
-  const {
-    userReducer: { users },
-  } = useSelector((state) => state);
+  const { users } = useSelector((state) => state.userReducer);
 
   const { register, handleSubmit, reset } = useForm({
     defaultValues: {
@@ -20,6 +22,7 @@ const UserProfile = () => {
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const updateUserHandler = (user) => {
     dispatch(asyncupdateuser(users.id, user));
 
@@ -28,9 +31,22 @@ const UserProfile = () => {
     });
   };
 
+  const logoutUserHandler = () => {
+    const refreshPage = () => {
+      navigate(0);
+    };
+    dispatch(asynclogoutuser());
+    navigate("/login");
+    refreshPage();
+  };
+
   const deleteHandler = () => {
+    const refreshPage = () => {
+      navigate(0);
+    };
     dispatch(asyncdeleteuser(users.id));
     navigate("/login");
+    refreshPage();
   };
 
   return users ? (
@@ -76,6 +92,7 @@ const UserProfile = () => {
           />
 
           <button
+            onClick={updateUserHandler}
             type="submit"
             className="bg-green-400 rounded-2xl mt-2 py-2 text-lg active:bg-green-500"
           >
@@ -83,10 +100,17 @@ const UserProfile = () => {
           </button>
           <button
             type="button"
+            onClick={logoutUserHandler}
+            className="bg-blue-400 rounded-2xl mt-3 py-2 text-lg active:bg-blue-500"
+          >
+            Logout User!
+          </button>
+          <button
+            type="button"
             onClick={deleteHandler}
             className="bg-red-400 rounded-2xl mt-3 py-2 text-lg active:bg-red-500"
           >
-            Logout User!
+            Delete User!
           </button>
         </form>
       </div>

@@ -53,11 +53,8 @@ export const asyncupdateuser = (id, user) => async (dispatch, getState) => {
 
 export const asyncdeleteuser = (id) => async (dispatch, getState) => {
   try {
-    // console.log(id);
     await axios.delete("/users/" + id);
-    dispatch(asynclogoutuser);
-    console.log("User Deleted");
-    
+    dispatch(asynclogoutuser());
   } catch (error) {
     console.log(error);
   }
