@@ -20,103 +20,100 @@ const UserProfile = () => {
       password: users?.password,
     },
   });
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const updateUserHandler = (user) => {
     dispatch(asyncupdateuser(users.id, user));
-
     toast.success(`Profile Updated Successfully!`, {
       position: "bottom-right",
     });
   };
 
   const logoutUserHandler = () => {
-    const refreshPage = () => {
-      navigate(0);
-    };
     dispatch(asynclogoutuser());
     navigate("/login");
-    refreshPage();
+    navigate(0);
   };
 
   const deleteHandler = () => {
-    const refreshPage = () => {
-      navigate(0);
-    };
     dispatch(asyncdeleteuser(users.id));
     navigate("/login");
-    refreshPage();
+    navigate(0);
   };
 
   return users ? (
-    <div className="flex justify-center items-center min-h-screen bg-[#22092C] text-white">
-      <div className="w-[90%] max-w-xl">
+    <div className="flex justify-center items-center min-h-screen bg-black px-4 text-white">
+      <div className="w-full max-w-xl bg-[#121212] p-8 rounded-xl shadow-md">
+        <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center text-white tracking-wide">
+          Edit Profile
+        </h1>
+
         <form
           onSubmit={handleSubmit(updateUserHandler)}
-          className="flex flex-col bg-[#872341] p-6 rounded-xl shadow-md"
+          className="flex flex-col gap-4"
         >
-          <h1 className="text-center text-4xl font-bold mb-6 ">Edit Profile</h1>
-
-          <label htmlFor="username" className="text-xl mb-1">
-            User Name:
+          <label htmlFor="username" className="text-sm font-semibold">
+            User Name
           </label>
           <input
             id="username"
             {...register("username")}
             type="text"
             placeholder="User Name"
-            className="outline-0 border-b mb-4 p-2 text-lg "
+            className="bg-[#1e1e1e] p-3 rounded text-white outline-none focus:ring-2 focus:ring-[#BE3144]"
           />
 
-          <label htmlFor="email" className="text-xl mb-1">
-            Email:
+          <label htmlFor="email" className="text-sm font-semibold">
+            Email
           </label>
           <input
             id="email"
             {...register("email")}
             type="email"
             placeholder="Email"
-            className="outline-0 border-b mb-4 p-2 text-lg "
+            className="bg-[#1e1e1e] p-3 rounded text-white outline-none focus:ring-2 focus:ring-[#BE3144]"
           />
 
-          <label htmlFor="pass" className="text-xl mb-1">
-            Password:
+          <label htmlFor="pass" className="text-sm font-semibold">
+            Password
           </label>
           <input
             id="pass"
             {...register("password")}
             type="password"
             placeholder="********"
-            className="outline-0 border-b mb-4 p-2 text-lg "
+            className="bg-[#1e1e1e] p-3 rounded text-white outline-none focus:ring-2 focus:ring-[#BE3144]"
           />
 
           <button
-            onClick={updateUserHandler}
             type="submit"
-            className="bg-green-400 rounded-2xl mt-2 py-2 text-lg active:bg-green-500"
+            className="bg-[#BE3144] hover:bg-[#F05941] text-white py-3 rounded-lg font-bold transition duration-200"
           >
-            Update User!
+            Update Profile
           </button>
+
           <button
             type="button"
             onClick={logoutUserHandler}
-            className="bg-blue-400 rounded-2xl mt-3 py-2 text-lg active:bg-blue-500"
+            className="bg-[#872341] hover:bg-[#BE3144] text-white py-3 rounded-lg font-bold transition duration-200"
           >
-            Logout User!
+            Logout
           </button>
+
           <button
             type="button"
             onClick={deleteHandler}
-            className="bg-red-400 rounded-2xl mt-3 py-2 text-lg active:bg-red-500"
+            className="bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-bold transition duration-200"
           >
-            Delete User!
+            Delete Account
           </button>
         </form>
       </div>
     </div>
   ) : (
-    "Loading..."
+    <div className="text-white text-center mt-20 text-lg">Loading...</div>
   );
 };
 

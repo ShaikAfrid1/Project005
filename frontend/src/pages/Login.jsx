@@ -14,59 +14,65 @@ const Login = () => {
       navigate(0);
     };
     dispatch(asyncloginuser(data));
-    toast.success(`Loggedin to your Account!`, {
+    toast.success(`Logged into your account!`, {
       position: "bottom-right",
     });
-    navigate("/");
     reset();
+    navigate("/");
     refreshPage();
   };
 
   return (
-    <div>
-      <div className="flex justify-center">
-        <h1 className="mb-10 text-4xl items-center">Login!</h1>
-      </div>
-      <div className="flex justify-center">
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex justify-start flex-col w-1/3 p-2 "
-        >
-          <label htmlFor="email" className="text-xl">
-            Email:
-          </label>
-          <input
-            id="email"
-            {...register("email")}
-            type="email"
-            placeholder="Enter your email"
-            className="outline-0 border-b mb-3 p-2 text-3xl"
-          />
+    <div className="min-h-screen flex items-center justify-center bg-black text-white">
+      <div className="bg-[#121212] p-10 rounded-2xl shadow-xl w-[90%] max-w-md border border-gray-800">
+        <h1 className="text-4xl font-bold text-center mb-6 tracking-wide">
+          Welcome Back 👋
+        </h1>
 
-          <label htmlFor="pass" className="text-xl">
-            Password:
-          </label>
-          <input
-            id="pass"
-            {...register("password")}
-            type="password"
-            placeholder="********"
-            className="outline-0 border-b mb-3 p-2 text-3xl"
-          />
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
+          <div>
+            <label htmlFor="email" className="block mb-1 text-gray-300 text-lg">
+              Email Address
+            </label>
+            <input
+              id="email"
+              {...register("email")}
+              type="email"
+              placeholder="you@example.com"
+              className="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="pass" className="block mb-1 text-gray-300 text-lg">
+              Password
+            </label>
+            <input
+              id="pass"
+              {...register("password")}
+              type="password"
+              placeholder="••••••••"
+              className="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+            />
+          </div>
 
           <button
             type="submit"
-            className="bg-[#BE3144] rounded-2xl mb-1 active:bg-[#ff314c]"
+            className="bg-white text-black font-semibold py-3 rounded-md hover:bg-gray-300 transition-all"
           >
             Login
           </button>
-          <p>
-            don't have an acoount?&nbsp;
-            <Link className="text-blue-500" to="/register">
-              Register
-            </Link>
-          </p>
         </form>
+
+        <p className="mt-6 text-center text-sm text-gray-400">
+          Don't have an account?{" "}
+          <Link
+            to="/register"
+            className="text-white underline hover:text-gray-300"
+          >
+            Register
+          </Link>
+        </p>
       </div>
     </div>
   );

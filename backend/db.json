@@ -13,6 +13,13 @@
       "email": "shaikafrid500@gmail.com",
       "password": "123456",
       "isAdmin": false
+    },
+    {
+      "id": "v1Ny4oL38T5GGPuWSv1TI",
+      "username": "Afrid",
+      "email": "shaikafrid500@gmail.com",
+      "password": "123456",
+      "isAdmin": false
     }
   ],
   "products": [
@@ -23,14 +30,6 @@
       "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
       "category": "men's clothing",
       "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-    },
-    {
-      "id": "2",
-      "title": "Mens Casual Premium Slim Fit T-Shirts ",
-      "price": "22",
-      "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, lightweight & soft fabric.",
-      "category": "men's clothing",
-      "image": "https://source.unsplash.com/300x300/?mouse,tech"
     },
     {
       "id": "3",

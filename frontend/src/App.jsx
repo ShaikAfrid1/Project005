@@ -7,6 +7,7 @@ import { asyncloadproduct } from "./actions/productActions";
 
 const App = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(asynccurrentuser());
     dispatch(asyncloadproduct());
@@ -14,10 +15,11 @@ const App = () => {
   }, []);
 
   return (
-    <div className="bg-[#22092C] p-5  min-h-screen w-full  text-white font-black">
+    <div className="bg-black text-white min-h-screen w-full font-sans">
       <Navbar />
-
-      <Mainroutes />
+      <main className="px-4 sm:px-8 lg:px-16 py-4">
+        <Mainroutes />
+      </main>
     </div>
   );
 };

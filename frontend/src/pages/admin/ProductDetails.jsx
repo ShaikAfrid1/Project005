@@ -27,11 +27,12 @@ const ProductDetails = () => {
       description: product?.description,
     },
   });
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const updateProductHandler = (product) => {
     dispatch(asyncupdateproduct(id, product));
-
     toast.success(`${product.title} Updated Successfully!`, {
       position: "bottom-right",
     });
@@ -43,110 +44,109 @@ const ProductDetails = () => {
   };
 
   return product ? (
-    <>
-      <div className="w-full flex">
-        <img
-          className="w-1/2  object-cover"
-          src={product.image}
-          alt="Product Image"
-        />
-        <div className="px-3 w-1/2 h-1/2">
-          <h1 className="text-5xl font-thin mb-10">{product.title}</h1>
-          <h2 className="mb-5 text-2xl text-green-400">
-            &#8377;{product.price}
-          </h2>
-          <p className="font-thin mb-5">{product.description}</p>
+    <div className="bg-[#0B0B0B] text-white min-h-screen px-8 py-10">
+      <div className="flex flex-col md:flex-row gap-10">
+        {/* Product Image */}
+        <div className="w-full md:w-1/2">
+          <img
+            className="rounded-xl w-full h-[500px] object-cover shadow-lg"
+            src={product.image}
+            alt="Product"
+          />
+        </div>
 
-          <button className="flex items-center gap-2 bg-[#BE3144] text-white px-3 py-1 rounded-lg">
+        {/* Product Info */}
+        <div className="w-full md:w-1/2 flex flex-col justify-between">
+          <div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight text-[#F05941]">
+              {product.title}
+            </h1>
+            <h2 className="text-2xl font-semibold text-green-400 mb-4">
+              ₹{product.price}
+            </h2>
+            <p className="text-gray-300 mb-6">{product.description}</p>
+          </div>
+
+          <button className="w-fit bg-[#BE3144] hover:bg-[#F05941] px-6 py-2 rounded-full text-white font-semibold flex items-center gap-2 transition duration-300">
             <ShoppingCartIcon fontSize="small" />
             Add to Cart
           </button>
         </div>
       </div>
-      <br /> <br />
-      <hr />
-      <div>
-        {users && users?.isAdmin && (
+
+      {/* Admin Edit Section */}
+      {users && users?.isAdmin && (
+        <div className="mt-12 bg-[#1a1a1a] p-8 rounded-xl shadow-md">
+          <h3 className="text-3xl font-semibold mb-6 text-white">
+            Update Product
+          </h3>
           <form
             onSubmit={handleSubmit(updateProductHandler)}
-            className="flex justify-start flex-col  p-1 "
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
-            <label htmlFor="title" className="text-xl">
-              Title:
-            </label>
+            <div>
+              <label className="text-sm text-gray-400">Title:</label>
+              <input
+                {...register("title")}
+                className="w-full p-3 rounded bg-[#2a2a2a] text-white outline-none border border-gray-700"
+              />
+            </div>
 
-            <input
-              id="title"
-              {...register("title")}
-              placeholder="Product Name"
-              className="outline-0 border-b mb-2 p-2 text-3xl"
-            />
+            <div>
+              <label className="text-sm text-gray-400">Price:</label>
+              <input
+                type="number"
+                {...register("price")}
+                className="w-full p-3 rounded bg-[#2a2a2a] text-white outline-none border border-gray-700"
+              />
+            </div>
 
-            <label htmlFor="price" className="text-xl">
-              Price:
-            </label>
+            <div>
+              <label className="text-sm text-gray-400">Image URL:</label>
+              <input
+                {...register("image")}
+                className="w-full p-3 rounded bg-[#2a2a2a] text-white outline-none border border-gray-700"
+              />
+            </div>
 
-            <input
-              id="price"
-              {...register("price")}
-              type="number"
-              placeholder="&#8377; 0.00"
-              className="outline-0 border-b mb-2 p-2 text-3xl"
-            />
+            <div>
+              <label className="text-sm text-gray-400">Category:</label>
+              <input
+                {...register("category")}
+                className="w-full p-3 rounded bg-[#2a2a2a] text-white outline-none border border-gray-700"
+              />
+            </div>
 
-            <label htmlFor="image" className="text-xl">
-              Image:
-            </label>
+            <div className="col-span-1 md:col-span-2">
+              <label className="text-sm text-gray-400">Description:</label>
+              <textarea
+                rows="4"
+                {...register("description")}
+                className="w-full p-3 rounded bg-[#2a2a2a] text-white outline-none border border-gray-700"
+              ></textarea>
+            </div>
 
-            <input
-              id="image"
-              {...register("image")}
-              type="url"
-              placeholder="Image URL"
-              className="outline-0 border-b mb-2 p-2 text-3xl"
-            />
-
-            <label htmlFor="description" className="text-xl">
-              Description:
-            </label>
-
-            <textarea
-              id="description"
-              {...register("description")}
-              placeholder="Enter Description here..."
-              className="outline-0 border-b mb-2 p-2 text-3xl"
-            ></textarea>
-
-            <label htmlFor="category" className="text-xl">
-              Category:
-            </label>
-
-            <input
-              id="category"
-              {...register("category")}
-              placeholder="Category"
-              className="outline-0 border-b mb-2 p-2 text-3xl"
-            />
-
-            <button
-              type="submit"
-              className="bg-green-400 rounded-2xl mt-3 active:bg-green-500"
-            >
-              Update Product
-            </button>
-            <button
-              type="button"
-              onClick={deleteHandler}
-              className="bg-red-400 rounded-2xl mt-3 active:bg-red-500"
-            >
-              Delete Product
-            </button>
+            <div className="flex gap-4 col-span-1 md:col-span-2">
+              <button
+                type="submit"
+                className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full font-semibold transition"
+              >
+                Update Product
+              </button>
+              <button
+                type="button"
+                onClick={deleteHandler}
+                className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-full font-semibold transition"
+              >
+                Delete Product
+              </button>
+            </div>
           </form>
-        )}
-      </div>
-    </>
+        </div>
+      )}
+    </div>
   ) : (
-    "Loading..."
+    <div className="text-white text-center mt-20 text-xl">Loading...</div>
   );
 };
 

@@ -2,10 +2,8 @@ import { nanoid } from "nanoid";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-// import { asyncregisteruser } from "../../actions/userActions";
 import { toast } from "react-toastify";
 import { asynccreateproduct } from "../../actions/productActions";
-/* eslint-disable no-unused-vars */
 
 const CreateProduct = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -15,84 +13,102 @@ const CreateProduct = () => {
   const createProductHandler = async (product) => {
     product.id = nanoid();
     dispatch(asynccreateproduct(product));
-    console.log(product);
-
-    toast.success(`${product.title} Added Successfully!`, {
+    toast.success(`${product.title} added successfully!`, {
       position: "bottom-right",
     });
+    reset();
     navigate("/products");
   };
 
   return (
-    <div className="min-h-screen w-full">
-      <div className="flex justify-center">
-        <h1 className="mb-3 text-4xl items-center">Create Product!</h1>
-      </div>
-      <div className="flex justify-center">
+    <div className="min-h-screen bg-black text-white flex items-center justify-center">
+      <div className="bg-[#121212] w-[90%] max-w-2xl p-10 rounded-2xl shadow-xl border border-gray-800">
+        <h1 className="text-4xl font-bold mb-8 text-center tracking-wide">
+          Add New Product 🛒
+        </h1>
+
         <form
           onSubmit={handleSubmit(createProductHandler)}
-          className="flex justify-start flex-col w-1/3 p-1 "
+          className="flex flex-col gap-6"
         >
-          <label htmlFor="title" className="text-xl">
-            Title:
-          </label>
+          {/* Title */}
+          <div>
+            <label htmlFor="title" className="block mb-1 text-gray-300 text-lg">
+              Product Title
+            </label>
+            <input
+              id="title"
+              {...register("title")}
+              placeholder="Type product name"
+              className="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+            />
+          </div>
 
-          <input
-            id="title"
-            {...register("title")}
-            placeholder="Product Name"
-            className="outline-0 border-b mb-2 p-2 text-3xl"
-          />
+          {/* Price */}
+          <div>
+            <label htmlFor="price" className="block mb-1 text-gray-300 text-lg">
+              Price
+            </label>
+            <input
+              id="price"
+              {...register("price")}
+              type="number"
+              placeholder="₹ 0.00"
+              className="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+            />
+          </div>
 
-          <label htmlFor="price" className="text-xl">
-            Price:
-          </label>
+          {/* Image URL */}
+          <div>
+            <label htmlFor="image" className="block mb-1 text-gray-300 text-lg">
+              Image URL
+            </label>
+            <input
+              id="image"
+              {...register("image")}
+              type="url"
+              placeholder="https://image-url.com"
+              className="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+            />
+          </div>
 
-          <input
-            id="price"
-            {...register("price")}
-            type="number"
-            placeholder="&#8377; 0.00"
-            className="outline-0 border-b mb-2 p-2 text-3xl"
-          />
+          {/* Description */}
+          <div>
+            <label
+              htmlFor="description"
+              className="block mb-1 text-gray-300 text-lg"
+            >
+              Description
+            </label>
+            <textarea
+              id="description"
+              {...register("description")}
+              placeholder="Tell us more about the product..."
+              className="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white resize-none"
+              rows="4"
+            />
+          </div>
 
-          <label htmlFor="image" className="text-xl">
-            Image:
-          </label>
+          {/* Category */}
+          <div>
+            <label
+              htmlFor="category"
+              className="block mb-1 text-gray-300 text-lg"
+            >
+              Category
+            </label>
+            <input
+              id="category"
+              {...register("category")}
+              placeholder="e.g. Men, Women, Electronics"
+              className="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+            />
+          </div>
 
-          <input
-            id="image"
-            {...register("image")}
-            type="url"
-            placeholder="Image URL"
-            className="outline-0 border-b mb-2 p-2 text-3xl"
-          />
-
-          <label htmlFor="description" className="text-xl">
-            Description:
-          </label>
-
-          <textarea
-            id="description"
-            {...register("description")}
-            placeholder="Enter Description here..."
-            className="outline-0 border-b mb-2 p-2 text-3xl"
-          ></textarea>
-
-          <label htmlFor="category" className="text-xl">
-            Category:
-          </label>
-
-          <input
-            id="category"
-            {...register("category")}
-            placeholder="Category"
-            className="outline-0 border-b mb-2 p-2 text-3xl"
-          />
-
+          {/* Submit Button */}
           <button
             type="submit"
-            className="bg-[#BE3144] rounded-2xl mt-1 active:bg-[#ff314c]"
+            className="bg-white text-black font-semibold py-3 rounded-md hover:bg-gray-300 transition-all"
           >
             Create Product
           </button>
