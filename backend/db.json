@@ -6,16 +6,7 @@
       "email": "Afrid@masteradmin.com",
       "password": "123456",
       "isAdmin": true,
-      "cart": [
-        {
-          "productId": "4",
-          "quantity": 1
-        },
-        {
-          "productId": "1",
-          "quantity": 1
-        }
-      ]
+      "cart": []
     },
     {
       "id": "ndGslClz-OkLz4SLDKCMf",

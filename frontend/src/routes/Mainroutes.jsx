@@ -1,27 +1,47 @@
-import { Routes, Route } from "react-router-dom";
+import { lazy } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Home from "../pages/Home";
-import Products from "../pages/Products";
-import Login from "../pages/Login";
-import Register from "../pages/Register";
-import CreateProduct from "../pages/admin/CreateProduct";
-import ProductDetails from "../pages/admin/ProductDetails";
-import UserProfile from "../pages/user/UserProfile";
-import PageNotFound from "../pages/user/PageNotFound";
-import AuthWrapper from "../components/AuthWrapper";
-import GuestLanding from "../components/GuestLanding"; // import new component
-import Cart from "../pages/Cart";
+import UnAuthWrapper from "../components/UnAuthWrapper";
+
+// Lazy-loaded components
+const Cart = lazy(() => import("../pages/Cart"));
+const GuestLanding = lazy(() => import("../components/GuestLanding"));
+const AuthWrapper = lazy(() => import("../components/AuthWrapper"));
+const PageNotFound = lazy(() => import("../pages/user/PageNotFound"));
+const UserProfile = lazy(() => import("../pages/user/UserProfile"));
+const ProductDetails = lazy(() => import("../pages/admin/ProductDetails"));
+const CreateProduct = lazy(() => import("../pages/admin/CreateProduct"));
+const Register = lazy(() => import("../pages/Register"));
+const Login = lazy(() => import("../pages/Login"));
+const Products = lazy(() => import("../pages/Products"));
+const Home = lazy(() => import("../pages/Home"));
 
 const Mainroutes = () => {
   const { users } = useSelector((state) => state.userReducer);
 
   return (
     <Routes>
+      {/* Public Routes */}
       <Route path="/" element={users ? <Home /> : <GuestLanding />} />
       <Route path="/products" element={<Products />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+      <Route
+        path="/login"
+        element={
+          <UnAuthWrapper>
+            <Login />
+          </UnAuthWrapper>
+        }
+      />
+      <Route
+        path="/register"
+        element={
+          <UnAuthWrapper>
+            <Register />
+          </UnAuthWrapper>
+        }
+      />
 
+      {/* Protected Routes */}
       <Route
         path="/admin/create-product"
         element={
@@ -46,7 +66,6 @@ const Mainroutes = () => {
           </AuthWrapper>
         }
       />
-
       <Route
         path="/cart"
         element={
@@ -55,6 +74,8 @@ const Mainroutes = () => {
           </AuthWrapper>
         }
       />
+
+      {/* 404 Page */}
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
