@@ -9,6 +9,7 @@ import {
   asyncdeleteproduct,
   asyncupdateproduct,
 } from "../../actions/productActions";
+import { asyncupdateuser } from "../../actions/userActions";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -43,6 +44,23 @@ const ProductDetails = () => {
     navigate("/products");
   };
 
+  const AddToCartHandler = (id) => {
+    const copyUser = { ...users, cart: [...users.cart] };
+    const x = copyUser.cart.findIndex((c) => c.productId == id);
+
+    if (x == -1) {
+      copyUser.cart.push({ productId: id, quantity: 1 });
+    } else {
+      copyUser.cart[x] = {
+        productId: id,
+        quantity: copyUser.cart[x].quantity + 1,
+      };
+    }
+
+    dispatch(asyncupdateuser(copyUser.id, copyUser));
+    toast.success("Added to cart!", { position: "bottom-right" });
+  };
+
   return product ? (
     <div className="bg-[#0B0B0B] text-white min-h-screen px-8 py-10">
       <div className="flex flex-col md:flex-row gap-10">
@@ -67,7 +85,10 @@ const ProductDetails = () => {
             <p className="text-gray-300 mb-6">{product.description}</p>
           </div>
 
-          <button className="w-fit bg-[#BE3144] hover:bg-[#F05941] px-6 py-2 rounded-full text-white font-semibold flex items-center gap-2 transition duration-300">
+          <button
+            onClick={() => AddToCartHandler(product.id)}
+            className="w-fit bg-[#BE3144] hover:bg-[#F05941] px-6 py-2 rounded-full text-white font-semibold flex items-center gap-2 transition duration-300"
+          >
             <ShoppingCartIcon fontSize="small" />
             Add to Cart
           </button>
@@ -146,7 +167,9 @@ const ProductDetails = () => {
       )}
     </div>
   ) : (
-    <div className="text-white text-center mt-20 animate-pulse text-xl">Loading...</div>
+    <div className="text-white text-center mt-20 animate-pulse text-xl">
+      Loading...
+    </div>
   );
 };
 

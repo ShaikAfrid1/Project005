@@ -23,24 +23,7 @@
       "email": "shaikafrid500@gmail.com",
       "password": "123456",
       "isAdmin": false,
-      "cart": [
-        {
-          "productId": "4",
-          "quantity": 1
-        },
-        {
-          "productId": "8",
-          "quantity": 1
-        },
-        {
-          "productId": "11",
-          "quantity": 1
-        },
-        {
-          "productId": "12",
-          "quantity": 1
-        }
-      ]
+      "cart": []
     }
   ],
   "products": [

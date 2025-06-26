@@ -33,7 +33,9 @@ const Cart = () => {
   if (!users?.cart?.length) {
     return (
       <div className="min-h-screen bg-black text-white flex justify-center items-center">
-        <h2 className="text-2xl font-light">🛒 Your Cart is Empty</h2>
+        <h2 className="text-2xl animate-pulse font-light">
+          🛒 Your Cart is Empty
+        </h2>
       </div>
     );
   }
@@ -78,7 +80,7 @@ const Cart = () => {
                       onClick={() => updateQuantity(item.productId, -1)}
                       className="bg-gray-700 text-white w-8 h-8 rounded-full hover:bg-red-600"
                     >
-                      −
+                      -
                     </button>
                     <span className="text-lg font-semibold">
                       {item.quantity}
