@@ -1,9 +1,35 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import ShoppingCartIcon from "@mui/icons-material/AddShoppingCartSharp";
+import { asyncupdateuser } from "../actions/userActions";
+import { toast } from "react-toastify";
 
 const Products = () => {
+  const dispatch = useDispatch();
+  const users = useSelector((state) => state.userReducer.users);
   const products = useSelector((state) => state.productReducer.products);
+
+  // const {
+  //   userReducer: { users },
+  //   productReducer: { products },
+  // } = useSelector((state) => state);
+
+  const AddToCartHandler = (id) => {
+    const copyUser = { ...users, cart: [...users.cart] };
+    const x = copyUser.cart.findIndex((c) => c.productId == id);
+
+    if (x == -1) {
+      copyUser.cart.push({ productId: id, quantity: 1 });
+    } else {
+      copyUser.cart[x] = {
+        productId: id,
+        quantity: copyUser.cart[x].quantity + 1,
+      };
+    }
+
+    dispatch(asyncupdateuser(copyUser.id, copyUser));
+    toast.success("Added to cart!", { position: "bottom-right" });
+  };
 
   const renderProducts = products.slice(0, 20).map((product) => {
     if (!product.title || !product.price || !product.image) return null;
@@ -37,7 +63,10 @@ const Products = () => {
             <span className="text-[#F05941] font-semibold text-md">
               ₹ {product.price}
             </span>
-            <button className="bg-[#BE3144] hover:bg-[#F05941] px-4 py-1 rounded-full text-white font-bold text-sm flex items-center gap-1">
+            <button
+              onClick={() => AddToCartHandler(product.id)}
+              className="bg-[#BE3144] hover:bg-[#F05941] px-4 py-1 rounded-full text-white font-bold text-sm flex items-center gap-1"
+            >
               <ShoppingCartIcon fontSize="small" />
               Add
             </button>

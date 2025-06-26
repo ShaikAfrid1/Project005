@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
+import ShoppingCartIcon from "@mui/icons-material/AddShoppingCartSharp";
 
 const Navbar = () => {
   const user = useSelector((state) => state.userReducer.users);
@@ -39,6 +40,16 @@ const Navbar = () => {
 
         {user ? (
           <>
+            <NavLink
+              to="/cart"
+              className={({ isActive }) =>
+                `hover:text-gray-300 transition ${
+                  isActive ? "text-[#BE3144]" : ""
+                }`
+              }
+            >
+              <ShoppingCartIcon />
+            </NavLink>
             {user?.isAdmin && (
               <NavLink
                 to="/admin/create-product"
@@ -51,9 +62,14 @@ const Navbar = () => {
                 Create
               </NavLink>
             )}
+
             <NavLink
               to="/admin/user-profile"
-              className="hover:text-gray-300 transition"
+              className={({ isActive }) =>
+                `hover:text-gray-300 transition ${
+                  isActive ? "text-[#BE3144]" : ""
+                }`
+              }
             >
               <AccountCircleSharpIcon fontSize="medium" />
             </NavLink>

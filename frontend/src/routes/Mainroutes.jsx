@@ -10,6 +10,7 @@ import UserProfile from "../pages/user/UserProfile";
 import PageNotFound from "../pages/user/PageNotFound";
 import AuthWrapper from "../components/AuthWrapper";
 import GuestLanding from "../components/GuestLanding"; // import new component
+import Cart from "../pages/Cart";
 
 const Mainroutes = () => {
   const { users } = useSelector((state) => state.userReducer);
@@ -42,6 +43,15 @@ const Mainroutes = () => {
         element={
           <AuthWrapper>
             <ProductDetails />
+          </AuthWrapper>
+        }
+      />
+
+      <Route
+        path="/cart"
+        element={
+          <AuthWrapper>
+            <Cart />
           </AuthWrapper>
         }
       />

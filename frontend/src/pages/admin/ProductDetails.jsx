@@ -146,7 +146,7 @@ const ProductDetails = () => {
       )}
     </div>
   ) : (
-    <div className="text-white text-center mt-20 text-xl">Loading...</div>
+    <div className="text-white text-center mt-20 animate-pulse text-xl">Loading...</div>
   );
 };
 

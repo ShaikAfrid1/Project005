@@ -5,21 +5,42 @@
       "username": "Afrid.Admin",
       "email": "Afrid@masteradmin.com",
       "password": "123456",
-      "isAdmin": true
+      "isAdmin": true,
+      "cart": [
+        {
+          "productId": "4",
+          "quantity": 1
+        },
+        {
+          "productId": "1",
+          "quantity": 1
+        }
+      ]
     },
     {
       "id": "ndGslClz-OkLz4SLDKCMf",
       "username": "Afrid",
       "email": "shaikafrid500@gmail.com",
       "password": "123456",
-      "isAdmin": false
-    },
-    {
-      "id": "v1Ny4oL38T5GGPuWSv1TI",
-      "username": "Afrid",
-      "email": "shaikafrid500@gmail.com",
-      "password": "123456",
-      "isAdmin": false
+      "isAdmin": false,
+      "cart": [
+        {
+          "productId": "4",
+          "quantity": 1
+        },
+        {
+          "productId": "8",
+          "quantity": 1
+        },
+        {
+          "productId": "11",
+          "quantity": 1
+        },
+        {
+          "productId": "12",
+          "quantity": 1
+        }
+      ]
     }
   ],
   "products": [

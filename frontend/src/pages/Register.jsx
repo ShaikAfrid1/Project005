@@ -13,6 +13,7 @@ const Register = () => {
   const onSubmit = async (data) => {
     data.id = nanoid();
     data.isAdmin = false;
+    data.cart = [];
     dispatch(asyncregisteruser(data));
     toast.success(`${data.username} account created!`, {
       position: "bottom-right",
