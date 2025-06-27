@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import axios from "../Api/AxiosConfig";
-import { loaduser, removeuser } from "../reducers/Userslice";
+import { loaduser, removeuser } from "../reducers/userSlice";
 
 export const asynccurrentuser = () => async (dispatch, getState) => {
   try {
