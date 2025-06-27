@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Dummy backend for Luxora",
   "scripts": {
-    "start": "json-server --watch db.json --port $PORT --static ./public"
+    "start": "node node_modules/json-server/lib/cli/bin.js --watch db.json --port $PORT --static ./public"
   },
   "dependencies": {
     "json-server": "^0.17.4"
