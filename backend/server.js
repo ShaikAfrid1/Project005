@@ -1,13 +1,17 @@
 const jsonServer = require("json-server");
+const path = require("path");
 const server = jsonServer.create();
-const router = jsonServer.router("db.json");
-const middlewares = jsonServer.defaults({ static: "./public" });
+const router = jsonServer.router(path.join(__dirname, "db.json"));
+const middlewares = jsonServer.defaults({
+  static: path.join(__dirname, "public"),
+});
 
-const port = process.env.PORT || 8000;
+const PORT = process.env.PORT || 10000;
 
 server.use(middlewares);
+server.use(jsonServer.bodyParser);
 server.use(router);
 
-server.listen(port, () => {
-  console.log(`🚀 Luxora backend running at http://localhost:${port}`);
+server.listen(PORT, () => {
+  console.log(`🚀 Luxora backend running at http://localhost:${PORT}`);
 });
