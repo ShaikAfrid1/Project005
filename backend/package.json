@@ -1,9 +1,8 @@
 {
   "name": "luxora-backend",
   "version": "1.0.0",
-  "description": "Dummy backend for Luxora",
   "scripts": {
-    "start": "node node_modules/json-server/lib/cli/bin.js --watch db.json --port $PORT --static ./public"
+    "start": "node server.js"
   },
   "dependencies": {
     "json-server": "^0.17.4"
