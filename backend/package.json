@@ -1,6 +1,9 @@
 {
+  "name": "luxora-backend",
+  "version": "1.0.0",
+  "description": "Dummy backend for Luxora",
   "scripts": {
-    "start": "npx json-server --watch db.json --port $PORT --static ./public"
+    "start": "json-server --watch db.json --port $PORT --static ./public"
   },
   "dependencies": {
     "json-server": "^0.17.4"
