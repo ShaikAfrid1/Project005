@@ -17,7 +17,7 @@ const Products = lazy(() => import("../pages/Products"));
 const Home = lazy(() => import("../pages/Home"));
 
 const Mainroutes = () => {
-  const { users } = useSelector((state) => state.userReducer);
+  const users = useSelector((state) => state.userReducer?.users);
 
   return (
     <Routes>

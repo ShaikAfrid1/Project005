@@ -9,7 +9,8 @@ import Loader from "./components/Loader";
 
 const App = () => {
   const dispatch = useDispatch();
-  const { users } = useSelector((state) => state.userReducer);
+  const users = useSelector((state) => state.userReducer?.users);
+
   const { products } = useSelector((state) => state.productReducer);
 
   useEffect(() => {

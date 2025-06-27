@@ -10,7 +10,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 const Products = () => {
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.userReducer.users);
+  const users = useSelector((state) => state.userReducer?.users);
 
   const [products, setProducts] = useState([]);
   const [hasMore, setHasMore] = useState(true);
