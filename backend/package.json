@@ -1,7 +1,7 @@
 {
-  "scripts": {
-    "start": "json-server --watch db.json --port 8000 --static ./public node server.js"
-  },
+"scripts": {
+  "start": "json-server --watch db.json --port $PORT --static ./public"
+},
   "dependencies": {
     "json-server": "^0.17.4"
   }
