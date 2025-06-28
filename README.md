@@ -35,7 +35,7 @@ Luxora is a sleek, responsive, and feature-rich eCommerce frontend built with **
 ## 👨‍💻 About Me
 
 <p align="center">
-  <img src="./public/Afrid.jpeg" alt="Shaik Afrid" width="200" style="border-radius: 12px;" />
+  <img src="./frontend/public/Afrid.jpeg" alt="Shaik Afrid" width="200" style="border-radius: 12px;" />
 </p>
 
 
