@@ -26,6 +26,9 @@ const App = () => {
     dispatch(asynccurrentuser());
   }, []);
 
+  const user = useSelector((state) => state.userReducer.user);
+  console.log("Redux user:", user);
+
   return (
     <div className="bg-black text-white min-h-screen w-full font-sans">
       <Navbar />
