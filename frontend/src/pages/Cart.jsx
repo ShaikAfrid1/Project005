@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.userReducer?.users);
+  const users = useSelector((state) => state.userReducer?.user);
 
   const products = useSelector((state) => state.productReducer.products);
 

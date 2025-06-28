@@ -15,7 +15,7 @@ const ProductDetails = () => {
   const { id } = useParams();
   const {
     productReducer: { products },
-    userReducer: { users },
+    userReducer: { user },
   } = useSelector((state) => state);
   const product = products?.find((product) => product.id == id);
 
@@ -45,7 +45,7 @@ const ProductDetails = () => {
   };
 
   const AddToCartHandler = (id) => {
-    const copyUser = { ...users, cart: [...users.cart] };
+    const copyUser = { ...user, cart: [...user.cart] };
     const x = copyUser.cart.findIndex((c) => c.productId == id);
 
     if (x == -1) {
@@ -96,7 +96,7 @@ const ProductDetails = () => {
       </div>
 
       {/* Admin Edit Section */}
-      {users && users?.isAdmin && (
+      {user && user?.isAdmin && (
         <div className="mt-12 bg-[#1a1a1a] p-8 rounded-xl shadow-md">
           <h3 className="text-3xl font-semibold mb-6 text-white">
             Update Product

@@ -38,7 +38,6 @@ export const asyncloginuser = (user) => async (dispatch, getState) => {
   }
 };
 
-
 export const asyncregisteruser = (user) => async (dispatch, getState) => {
   try {
     const res = await axios.post("/users", user);

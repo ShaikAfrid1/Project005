@@ -4,7 +4,7 @@ import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
 import ShoppingCartIcon from "@mui/icons-material/AddShoppingCartSharp";
 
 const Navbar = () => {
-  const users = useSelector((state) => state.userReducer?.users);
+  const user = useSelector((state) => state.userReducer?.user);
 
   return (
     <nav className="sticky top-0 z-50 flex justify-between items-center px-10 py-6 bg-black text-white shadow-md backdrop-blur-sm">
@@ -38,7 +38,7 @@ const Navbar = () => {
           Products
         </NavLink>
 
-        {users ? (
+        {user ? (
           <>
             <NavLink
               to="/cart"
@@ -50,7 +50,7 @@ const Navbar = () => {
             >
               <ShoppingCartIcon />
             </NavLink>
-            {users?.isAdmin && (
+            {user?.isAdmin && (
               <NavLink
                 to="/admin/create-product"
                 className={({ isActive }) =>

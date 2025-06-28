@@ -11,7 +11,7 @@ import {
 } from "../../actions/userActions";
 
 const UserProfile = () => {
-  const users = useSelector((state) => state.userReducer?.users);
+  const users = useSelector((state) => state.userReducer?.user);
 
   const { register, handleSubmit, reset } = useForm({
     defaultValues: {

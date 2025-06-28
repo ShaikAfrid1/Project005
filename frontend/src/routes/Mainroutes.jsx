@@ -17,12 +17,12 @@ const Products = lazy(() => import("../pages/Products"));
 const Home = lazy(() => import("../pages/Home"));
 
 const Mainroutes = () => {
-  const users = useSelector((state) => state.userReducer?.users);
+  const user = useSelector((state) => state.userReducer?.user);
 
   return (
     <Routes>
       {/* Public Routes */}
-      <Route path="/" element={users ? <Home /> : <GuestLanding />} />
+      <Route path="/" element={user ? <Home /> : <GuestLanding />} />
       <Route path="/products" element={<Products />} />
       <Route
         path="/login"
