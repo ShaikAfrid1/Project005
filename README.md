@@ -34,7 +34,7 @@ Luxora is a sleek, responsive, and feature-rich eCommerce frontend built with **
 
 ## 👨‍💻 About Me
 
-![Shaik Afrid](./public/Afrid.jpeg) 
+![Shaik Afrid](./frontend/public/Afrid.jpeg) 
 
 
 Hey there! I'm **Shaik Afrid** – a passionate **Frontend Developer** who’s obsessed with crafting sleek, responsive, and user-friendly web interfaces. Whether it's building a pixel-perfect UI or diving into logic and performance, I love turning ideas into clean, functional code.
