@@ -23,9 +23,9 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black text-white">
-      <div className="bg-[#121212] p-10 rounded-2xl shadow-xl w-[90%] max-w-md border border-gray-800">
-        <h1 className="text-4xl font-bold text-center mb-6 tracking-wide">
+    <div className="min-h-screen flex items-center justify-center bg-black text-white px-4">
+      <div className="bg-[#121212] p-8 sm:p-10 rounded-2xl shadow-xl w-full max-w-md border border-gray-800">
+        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6 tracking-wide">
           Create Account 🖋️
         </h1>
 
@@ -33,7 +33,7 @@ const Register = () => {
           <div>
             <label
               htmlFor="username"
-              className="block mb-1 text-gray-300 text-lg"
+              className="block mb-1 text-gray-300 text-sm sm:text-base"
             >
               Username
             </label>
@@ -41,12 +41,12 @@ const Register = () => {
               id="username"
               {...register("username")}
               placeholder="lux_user"
-              className="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F05941]"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block mb-1 text-gray-300 text-lg">
+            <label htmlFor="email" className="block mb-1 text-gray-300 text-sm sm:text-base">
               Email Address
             </label>
             <input
@@ -54,12 +54,12 @@ const Register = () => {
               {...register("email")}
               type="email"
               placeholder="you@example.com"
-              className="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F05941]"
             />
           </div>
 
           <div>
-            <label htmlFor="pass" className="block mb-1 text-gray-300 text-lg">
+            <label htmlFor="pass" className="block mb-1 text-gray-300 text-sm sm:text-base">
               Password
             </label>
             <input
@@ -67,13 +67,13 @@ const Register = () => {
               {...register("password")}
               type="password"
               placeholder="••••••••"
-              className="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F05941]"
             />
           </div>
 
           <button
             type="submit"
-            className="bg-white text-black font-semibold py-3 rounded-md hover:bg-gray-300 transition-all"
+            className="bg-[#F05941] text-white font-semibold py-3 rounded-md hover:bg-[#BE3144] transition-all"
           >
             Register
           </button>
@@ -83,7 +83,7 @@ const Register = () => {
           Already have an account?{" "}
           <Link
             to="/login"
-            className="text-white underline hover:text-gray-300"
+            className="text-white underline hover:text-gray-300 transition"
           >
             Login
           </Link>

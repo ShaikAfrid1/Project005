@@ -10,28 +10,30 @@ const Login = () => {
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-  try {
-    await dispatch(asyncloginuser(data));
-    toast.success("Logged in!");
-    reset();
-    navigate("/");
-    window.location.reload();
-  } catch {
-    toast.error("Invalid email or password");
-  }
-};
-
+    try {
+      await dispatch(asyncloginuser(data));
+      toast.success("Logged in!");
+      reset();
+      navigate("/");
+      window.location.reload();
+    } catch {
+      toast.error("Invalid email or password");
+    }
+  };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black text-white">
-      <div className="bg-[#121212] p-10 rounded-2xl shadow-xl w-[90%] max-w-md border border-gray-800">
-        <h1 className="text-4xl font-bold text-center mb-6 tracking-wide">
+    <div className="min-h-screen flex items-center justify-center bg-black text-white px-4">
+      <div className="bg-[#121212] w-full max-w-md sm:max-w-lg p-6 sm:p-10 rounded-2xl shadow-xl border border-gray-800">
+        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6 tracking-wide">
           Welcome Back 👋
         </h1>
 
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
           <div>
-            <label htmlFor="email" className="block mb-1 text-gray-300 text-lg">
+            <label
+              htmlFor="email"
+              className="block mb-1 text-gray-300 text-base sm:text-lg"
+            >
               Email Address
             </label>
             <input
@@ -44,7 +46,10 @@ const Login = () => {
           </div>
 
           <div>
-            <label htmlFor="pass" className="block mb-1 text-gray-300 text-lg">
+            <label
+              htmlFor="pass"
+              className="block mb-1 text-gray-300 text-base sm:text-lg"
+            >
               Password
             </label>
             <input
@@ -58,14 +63,14 @@ const Login = () => {
 
           <button
             type="submit"
-            className="bg-white text-black font-semibold py-3 rounded-md hover:bg-gray-300 transition-all"
+            className="bg-white text-black font-semibold py-3 rounded-md hover:bg-gray-300 transition-all text-base sm:text-lg"
           >
             Login
           </button>
         </form>
 
-        <p className="mt-6 text-center text-sm text-gray-400">
-          Don't have an account?{" "}
+        <p className="mt-6 text-center text-sm sm:text-base text-gray-400">
+          Don’t have an account?{" "}
           <Link
             to="/register"
             className="text-white underline hover:text-gray-300"

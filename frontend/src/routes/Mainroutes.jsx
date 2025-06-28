@@ -2,6 +2,7 @@ import { lazy } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import UnAuthWrapper from "../components/UnAuthWrapper";
+import About from "../pages/About";
 
 // Lazy-loaded components
 const Cart = lazy(() => import("../pages/Cart"));
@@ -24,6 +25,7 @@ const Mainroutes = () => {
       {/* Public Routes */}
       <Route path="/" element={user ? <Home /> : <GuestLanding />} />
       <Route path="/products" element={<Products />} />
+      <Route path="/about" element={<About />} />
       <Route
         path="/login"
         element={

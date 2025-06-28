@@ -10,7 +10,7 @@ const CreateProduct = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const createProductHandler = async (product) => {
+  const createProductHandler = (product) => {
     product.id = nanoid();
     dispatch(asynccreateproduct(product));
     toast.success(`${product.title} added successfully!`, {
@@ -21,32 +21,32 @@ const CreateProduct = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center">
-      <div className="bg-[#121212] w-[90%] max-w-2xl p-10 rounded-2xl shadow-xl border border-gray-800">
-        <h1 className="text-4xl font-bold mb-8 text-center tracking-wide">
+    <div className="min-h-screen bg-black text-white flex items-center justify-center px-4 py-10">
+      <div className="bg-[#121212] w-full max-w-2xl p-8 md:p-10 rounded-2xl shadow-xl border border-gray-800">
+        <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center tracking-wide">
           Add New Product 🛒
         </h1>
 
         <form
           onSubmit={handleSubmit(createProductHandler)}
-          className="flex flex-col gap-6"
+          className="flex flex-col gap-5"
         >
           {/* Title */}
           <div>
-            <label htmlFor="title" className="block mb-1 text-gray-300 text-lg">
+            <label htmlFor="title" className="block mb-1 text-gray-300 text-base">
               Product Title
             </label>
             <input
               id="title"
               {...register("title")}
               placeholder="Type product name"
-              className="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-full p-3 rounded-md bg-[#1e1e1e] text-white border border-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#BE3144]"
             />
           </div>
 
           {/* Price */}
           <div>
-            <label htmlFor="price" className="block mb-1 text-gray-300 text-lg">
+            <label htmlFor="price" className="block mb-1 text-gray-300 text-base">
               Price
             </label>
             <input
@@ -54,13 +54,13 @@ const CreateProduct = () => {
               {...register("price")}
               type="number"
               placeholder="₹ 0.00"
-              className="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-full p-3 rounded-md bg-[#1e1e1e] text-white border border-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#BE3144]"
             />
           </div>
 
-          {/* Image URL */}
+          {/* Image */}
           <div>
-            <label htmlFor="image" className="block mb-1 text-gray-300 text-lg">
+            <label htmlFor="image" className="block mb-1 text-gray-300 text-base">
               Image URL
             </label>
             <input
@@ -68,47 +68,41 @@ const CreateProduct = () => {
               {...register("image")}
               type="url"
               placeholder="https://image-url.com"
-              className="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-full p-3 rounded-md bg-[#1e1e1e] text-white border border-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#BE3144]"
             />
           </div>
 
           {/* Description */}
           <div>
-            <label
-              htmlFor="description"
-              className="block mb-1 text-gray-300 text-lg"
-            >
+            <label htmlFor="description" className="block mb-1 text-gray-300 text-base">
               Description
             </label>
             <textarea
               id="description"
               {...register("description")}
               placeholder="Tell us more about the product..."
-              className="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white resize-none"
               rows="4"
+              className="w-full p-3 rounded-md bg-[#1e1e1e] text-white border border-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#BE3144] resize-none"
             />
           </div>
 
           {/* Category */}
           <div>
-            <label
-              htmlFor="category"
-              className="block mb-1 text-gray-300 text-lg"
-            >
+            <label htmlFor="category" className="block mb-1 text-gray-300 text-base">
               Category
             </label>
             <input
               id="category"
               {...register("category")}
               placeholder="e.g. Men, Women, Electronics"
-              className="w-full p-3 rounded-md bg-gray-800 text-white border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-full p-3 rounded-md bg-[#1e1e1e] text-white border border-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#BE3144]"
             />
           </div>
 
           {/* Submit Button */}
           <button
             type="submit"
-            className="bg-white text-black font-semibold py-3 rounded-md hover:bg-gray-300 transition-all"
+            className="bg-[#BE3144] hover:bg-[#F05941] text-white font-semibold py-3 rounded-md transition-all"
           >
             Create Product
           </button>

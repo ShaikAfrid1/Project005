@@ -44,52 +44,67 @@ const UserProfile = () => {
   };
 
   return users ? (
-    <div className="flex justify-center items-center min-h-screen bg-black px-4 text-white">
-      <div className="w-full max-w-xl bg-[#121212] p-8 rounded-xl shadow-md">
-        <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center text-white tracking-wide">
+    <div className="flex items-center justify-center min-h-screen bg-black px-4 py-10 text-white">
+      <div className="w-full max-w-md sm:max-w-xl bg-[#121212] p-6 sm:p-10 rounded-xl shadow-lg border border-gray-800">
+        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-8 tracking-wide">
           Edit Profile
         </h1>
 
         <form
           onSubmit={handleSubmit(updateUserHandler)}
-          className="flex flex-col gap-4"
+          className="flex flex-col gap-5"
         >
-          <label htmlFor="username" className="text-sm font-semibold">
-            User Name
-          </label>
-          <input
-            id="username"
-            {...register("username")}
-            type="text"
-            placeholder="User Name"
-            className="bg-[#1e1e1e] p-3 rounded text-white outline-none focus:ring-2 focus:ring-[#BE3144]"
-          />
+          <div>
+            <label
+              htmlFor="username"
+              className="block mb-1 text-gray-300 text-sm font-semibold"
+            >
+              Username
+            </label>
+            <input
+              id="username"
+              {...register("username")}
+              type="text"
+              placeholder="User Name"
+              className="w-full p-3 rounded bg-[#1e1e1e] text-white border border-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#BE3144]"
+            />
+          </div>
 
-          <label htmlFor="email" className="text-sm font-semibold">
-            Email
-          </label>
-          <input
-            id="email"
-            {...register("email")}
-            type="email"
-            placeholder="Email"
-            className="bg-[#1e1e1e] p-3 rounded text-white outline-none focus:ring-2 focus:ring-[#BE3144]"
-          />
+          <div>
+            <label
+              htmlFor="email"
+              className="block mb-1 text-gray-300 text-sm font-semibold"
+            >
+              Email Address
+            </label>
+            <input
+              id="email"
+              {...register("email")}
+              type="email"
+              placeholder="you@example.com"
+              className="w-full p-3 rounded bg-[#1e1e1e] text-white border border-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#BE3144]"
+            />
+          </div>
 
-          <label htmlFor="pass" className="text-sm font-semibold">
-            Password
-          </label>
-          <input
-            id="pass"
-            {...register("password")}
-            type="password"
-            placeholder="********"
-            className="bg-[#1e1e1e] p-3 rounded text-white outline-none focus:ring-2 focus:ring-[#BE3144]"
-          />
+          <div>
+            <label
+              htmlFor="pass"
+              className="block mb-1 text-gray-300 text-sm font-semibold"
+            >
+              Password
+            </label>
+            <input
+              id="pass"
+              {...register("password")}
+              type="password"
+              placeholder="••••••••"
+              className="w-full p-3 rounded bg-[#1e1e1e] text-white border border-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#BE3144]"
+            />
+          </div>
 
           <button
             type="submit"
-            className="bg-[#BE3144] hover:bg-[#F05941] text-white py-3 rounded-lg font-bold transition duration-200"
+            className="w-full bg-[#BE3144] hover:bg-[#F05941] text-white py-3 rounded-lg font-bold transition-all"
           >
             Update Profile
           </button>
@@ -97,7 +112,7 @@ const UserProfile = () => {
           <button
             type="button"
             onClick={logoutUserHandler}
-            className="bg-[#872341] hover:bg-[#BE3144] text-white py-3 rounded-lg font-bold transition duration-200"
+            className="w-full bg-[#872341] hover:bg-[#BE3144] text-white py-3 rounded-lg font-bold transition-all"
           >
             Logout
           </button>
@@ -105,7 +120,7 @@ const UserProfile = () => {
           <button
             type="button"
             onClick={deleteHandler}
-            className="bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-bold transition duration-200"
+            className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-bold transition-all"
           >
             Delete Account
           </button>
@@ -113,7 +128,9 @@ const UserProfile = () => {
       </div>
     </div>
   ) : (
-    <div className="text-white text-center mt-20 text-lg">Loading...</div>
+    <div className="text-white text-center mt-20 text-lg animate-pulse">
+      Loading...
+    </div>
   );
 };
 
