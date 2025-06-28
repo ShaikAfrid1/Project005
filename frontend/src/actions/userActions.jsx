@@ -23,11 +23,18 @@ export const asynclogoutuser = () => async (dispatch, getState) => {
 export const asyncloginuser = (user) => async (dispatch, getState) => {
   try {
     const { data } = await axios.get(
-      `users?email=${user.email}&password=${user.password}`
+      `/users?email=${user.email}&password=${user.password}`
     );
-    localStorage.setItem("user", JSON.stringify(data[0]));
+
+    if (data.length > 0) {
+      localStorage.setItem("user", JSON.stringify(data[0]));
+      dispatch(loaduser(data[0])); // ✅ important
+    } else {
+      throw new Error("Invalid credentials");
+    }
   } catch (error) {
     console.log(error);
+    throw error; // rethrow for frontend to catch
   }
 };
 

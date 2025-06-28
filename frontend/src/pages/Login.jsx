@@ -9,17 +9,20 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const onSubmit = (data) => {
-    const refreshPage = () => {
-      navigate(0);
-    };
-    dispatch(asyncloginuser(data));
-    toast.success(`Logged into your account!`, {
-      position: "bottom-right",
-    });
-    reset();
-    navigate("/");
-    refreshPage();
+  const onSubmit = async (data) => {
+    try {
+      await dispatch(asyncloginuser(data));
+      toast.success(`Logged into your account!`, {
+        position: "bottom-right",
+      });
+      reset();
+      navigate("/");
+      window.location.reload(); // better than navigate(0)
+    } catch (err) {
+      toast.error(err, "Login failed. Check email or password.", {
+        position: "bottom-right",
+      });
+    }
   };
 
   return (
