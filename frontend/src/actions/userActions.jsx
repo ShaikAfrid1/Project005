@@ -32,13 +32,17 @@ export const asyncloginuser = (user) => async (dispatch) => {
 
     const matchedUser = data[0];
 
+    // save to localStorage
     localStorage.setItem("user", JSON.stringify(matchedUser));
+
+    // VERY IMPORTANT: also load user into redux
     dispatch(loaduser(matchedUser));
   } catch (error) {
     console.log("Login failed:", error.message);
     throw error;
   }
 };
+
 
 export const asyncregisteruser = (user) => async (dispatch, getState) => {
   try {

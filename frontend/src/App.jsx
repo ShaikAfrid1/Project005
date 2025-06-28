@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Mainroutes from "./routes/Mainroutes";
@@ -15,13 +16,15 @@ const App = () => {
 
   useEffect(() => {
     !users && dispatch(asynccurrentuser());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [users]);
 
   useEffect(() => {
     products.length == 0 && dispatch(asyncloadproduct());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [products]);
+
+  useEffect(() => {
+    dispatch(asynccurrentuser());
+  }, []);
 
   return (
     <div className="bg-black text-white min-h-screen w-full font-sans">
