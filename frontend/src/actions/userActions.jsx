@@ -20,23 +20,22 @@ export const asynclogoutuser = () => async (dispatch, getState) => {
   }
 };
 
-export const asyncloginuser = (user) => async (dispatch, getState) => {
+export const asyncloginuser = (user) => async (dispatch) => {
   try {
-    const res = await axios.get(
+    const { data } = await axios.get(
       `/users?email=${user.email}&password=${user.password}`
     );
 
-    if (res.data.length === 0) {
+    if (!data.length) {
       throw new Error("Invalid credentials");
     }
 
-    const loggedUser = res.data[0];
+    const matchedUser = data[0];
 
-    // Save and dispatch
-    localStorage.setItem("user", JSON.stringify(loggedUser));
-    dispatch(loaduser(loggedUser));
+    localStorage.setItem("user", JSON.stringify(matchedUser));
+    dispatch(loaduser(matchedUser));
   } catch (error) {
-    console.error("Login failed:", error);
+    console.log("Login failed:", error.message);
     throw error;
   }
 };
