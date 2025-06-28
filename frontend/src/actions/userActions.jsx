@@ -22,28 +22,39 @@ export const asynclogoutuser = () => async (dispatch, getState) => {
 
 export const asyncloginuser = (user) => async (dispatch, getState) => {
   try {
-    const { data } = await axios.get(
+    const res = await axios.get(
       `/users?email=${user.email}&password=${user.password}`
     );
 
-    if (data.length > 0) {
-      localStorage.setItem("user", JSON.stringify(data[0]));
-      dispatch(loaduser(data[0])); // ✅ important
-    } else {
+    if (res.data.length === 0) {
       throw new Error("Invalid credentials");
     }
+
+    const loggedUser = res.data[0];
+
+    // Save and dispatch
+    localStorage.setItem("user", JSON.stringify(loggedUser));
+    dispatch(loaduser(loggedUser));
   } catch (error) {
-    console.log(error);
-    throw error; // rethrow for frontend to catch
+    console.error("Login failed:", error);
+    throw error;
   }
 };
 
 export const asyncregisteruser = (user) => async (dispatch, getState) => {
   try {
-    const res = await axios.post("/users", user);
-    console.log(res);
+    if (!user.email || !user.password) {
+      throw new Error("Missing email or password");
+    }
+
+    const res = await axios.post("/users", {
+      email: user.email.trim(),
+      password: user.password.trim(),
+    });
+
+    console.log("User registered:", res.data);
   } catch (error) {
-    console.log(error);
+    console.log("Register error:", error);
   }
 };
 

@@ -11,17 +11,14 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
+      console.log("Login try:", data);
       await dispatch(asyncloginuser(data));
-      toast.success(`Logged into your account!`, {
-        position: "bottom-right",
-      });
+      toast.success(`Logged in!`);
       reset();
       navigate("/");
-      window.location.reload(); // better than navigate(0)
-    } catch (err) {
-      toast.error(err, "Login failed. Check email or password.", {
-        position: "bottom-right",
-      });
+      window.location.reload();
+    } catch (e) {
+      toast.error(e, "Login failed. Wrong email or password.");
     }
   };
 
