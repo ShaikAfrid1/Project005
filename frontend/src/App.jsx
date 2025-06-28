@@ -13,10 +13,13 @@ const App = () => {
   const user = useSelector((state) => state.userReducer?.user);
 
   const { products } = useSelector((state) => state.productReducer);
-
   useEffect(() => {
-    !user && dispatch(asynccurrentuser());
+    console.log("Redux user on App mount:", user);
   }, [user]);
+
+  // useEffect(() => {
+  //   !user && dispatch(asynccurrentuser());
+  // }, [user]);
 
   useEffect(() => {
     products.length == 0 && dispatch(asyncloadproduct());

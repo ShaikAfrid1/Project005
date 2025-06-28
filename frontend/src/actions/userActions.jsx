@@ -20,44 +20,31 @@ export const asynclogoutuser = () => async (dispatch, getState) => {
   }
 };
 
-export const asyncloginuser = (user) => async (dispatch) => {
+export const asyncloginuser = (user) => async (dispatch, getState) => {
   try {
     const { data } = await axios.get(
-      `/users?email=${user.email}&password=${user.password}`
+      `users?email=${user.email}&password=${user.password}`
     );
 
-    if (!data.length) {
+    if (data.length > 0) {
+      localStorage.setItem("user", JSON.stringify(data[0]));
+      dispatch(loaduser(data[0])); // 💥 this line was missing mawa!
+    } else {
       throw new Error("Invalid credentials");
     }
-
-    const matchedUser = data[0];
-
-    // save to localStorage
-    localStorage.setItem("user", JSON.stringify(matchedUser));
-
-    // VERY IMPORTANT: also load user into redux
-    dispatch(loaduser(matchedUser));
   } catch (error) {
-    console.log("Login failed:", error.message);
-    throw error;
+    console.log("Login Error:", error);
+    throw error; // send it back to Login.jsx for toast
   }
 };
 
 
 export const asyncregisteruser = (user) => async (dispatch, getState) => {
   try {
-    if (!user.email || !user.password) {
-      throw new Error("Missing email or password");
-    }
-
-    const res = await axios.post("/users", {
-      email: user.email.trim(),
-      password: user.password.trim(),
-    });
-
-    console.log("User registered:", res.data);
+    const res = await axios.post("/users", user);
+    console.log(res);
   } catch (error) {
-    console.log("Register error:", error);
+    console.log(error);
   }
 };
 
