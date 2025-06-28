@@ -9,17 +9,17 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-const onSubmit = async (data) => {
-  try {
-    await dispatch(asyncloginuser(data));
-    toast.success("Logged in!");
-    reset();
-    navigate("/");
-    window.location.reload();
-  } catch {
-    toast.error("Invalid email or password");
-  }
-};
+  const onSubmit = async (data) => {
+    try {
+      dispatch(asyncloginuser(data));
+      toast.success("Logged in!");
+      reset();
+      navigate("/");
+      window.location.reload();
+    } catch {
+      toast.error("Invalid email or password");
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-black text-white">

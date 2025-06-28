@@ -10,23 +10,18 @@ import Loader from "./components/Loader";
 
 const App = () => {
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.userReducer?.users);
+  const user = useSelector((state) => state.userReducer?.user);
 
   const { products } = useSelector((state) => state.productReducer);
 
   useEffect(() => {
-    !users && dispatch(asynccurrentuser());
-  }, [users]);
+    !user && dispatch(asynccurrentuser());
+  }, [user]);
 
   useEffect(() => {
     products.length == 0 && dispatch(asyncloadproduct());
   }, [products]);
 
-  useEffect(() => {
-    dispatch(asynccurrentuser());
-  }, []);
-
-  const user = useSelector((state) => state.userReducer.user);
   console.log("Redux user:", user);
 
   return (
