@@ -34,7 +34,7 @@ const Home = () => {
           </button>
         </div>
       </section>
-
+      <br /> <br />
       {/* Categories */}
       <section className="py-14 px-4 sm:px-6 md:px-10 lg:px-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 bg-[#121212]">
         {["Men", "Women", "Electronics"].map((cat, idx) => (
@@ -49,7 +49,6 @@ const Home = () => {
           </div>
         ))}
       </section>
-
       {/* Cinematic Video Section */}
       <section className="relative w-full h-[70vh] overflow-hidden my-10">
         <video
@@ -74,7 +73,6 @@ const Home = () => {
           </p>
         </div>
       </section>
-
       {/* Featured Products */}
       <section className="py-14 px-4 sm:px-6 md:px-10 lg:px-16 bg-[#121212]">
         <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-center">
@@ -114,7 +112,6 @@ const Home = () => {
           ))}
         </div>
       </section>
-
       {/* Newsletter */}
       <section className="py-16 px-4 sm:px-6 md:px-10 lg:px-16 bg-[#121212] text-center">
         <h2 className="text-2xl sm:text-3xl font-extrabold mb-4 tracking-wide">
@@ -134,7 +131,6 @@ const Home = () => {
           </button>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="bg-black border-t border-gray-800 py-8 text-center text-sm text-gray-400">
         <p>
